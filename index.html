@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" ng-app="openWeatherApp">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/app.css"/>
+        <link rel="stylesheet" href="lib/animate.css"/>
+        <script>
+            var x=document.getElementById("demo");
+            function getLocation()
+            {
+                if (navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+                else{x.innerHTML="Geolocation is not supported by this browser.";}
+            }
+            function showPosition(position)
+            {
+                //alert(position.coords.latitude);
+               /* x.innerHTML="Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude;*/
+                getAddress(position.coords.latitude,position.coords.longitude)
+            }
+
+            function getAddress (latitude, longitude) {
+                return new Promise(function (resolve, reject) {
+                    var request = new XMLHttpRequest();
+                    var method = 'GET';
+                    var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&sensor=true';
+                    var async = true;
+
+                    request.open(method, url, async);
+                    request.onreadystatechange = function () {
+                        if (request.readyState == 4) {
+                            if (request.status == 200) {
+
+                                var data = JSON.parse(request.responseText);
+                                var address = data.results[0].formatted_address;
+                                //alert(address)
+                                var address1 = data.results[0].types['locality'];
+                                //alert(address1);
+                                //resolve(address);
+                                var city =""
+
+                            }
+                        }
+                    };
+                    request.send();
+                });
+            }
+        </script>
+
+    </head>
+    <body onload="getLocation()">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+
+        <div class="container">
+            <div ng-view></div>
+        </div>
+
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular/angular-route.js"></script>
+        <script src="lib/angular/angular-resource.js"></script>
+        <script src="lib/iso-3166-country-codes-angular/iso-3166-country-codes-angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
+    </body>
+</html>

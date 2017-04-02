@@ -1,0 +1,52 @@
+
+
+<div class="container">
+    <div class="weather-search fa-align-center">
+        <div class="row">
+            <div class="col-xs-12" align = "center">
+                <div>
+                    <form class="form-inline" role="form">
+
+                        <span class="form-group {{hasState}}">
+                            <label class="sr-only" for="location">City</label>
+                            <input ng-model="location" type="text" class="form-control bg-primary" id="location" placeholder="City">
+                        </span>
+                        <button ng-click="getForecastByLocation(location)" type="submit" class="btn btn-primary  icon-search">Search!</button>
+                        <span ng-show="message" class="alert"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>{{message}}</span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weather-data animate fadeInDown" ng-show="true">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="city">
+                    <h3>
+                        {{forecast.city.name | placeholder:'?'}}, {{forecast.city.country | isoCountry}}
+
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <strong>
+                <div weather-panel="forecast" show-entry="forecast.list[0]"></div>
+                </strong>
+            </div>
+            <div class="col-xs-4">
+                <div weather-panel="forecast" show-entry="forecast.list[1]"></div>
+            </div>
+            <div class="col-xs-4">
+                <div weather-panel="forecast" show-entry="forecast.list[2]"></div>
+            </div>
+            <div class="col-xs-4">
+                <div weather-panel="forecast" show-entry="forecast.list[3]"></div>
+            </div>
+            <div class="col-xs-4">
+                <div weather-panel="forecast" show-entry="forecast.list[4]"></div>
+            </div>
+        </div>
+    </div>
+</div>

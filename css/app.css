@@ -1,0 +1,58 @@
+/* app css stylesheet */
+
+body {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background: lightgray;
+}
+.panel-primary
+{
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 475px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+}
+.city
+{
+    font: bold 34px "Century Schoolbook", Georgia, Times, serif;
+    color: #333;
+    line-height: 90%;
+    margin: .2em 0 .4em 0;
+    letter-spacing: -2px;
+    text-align: center;
+
+}
+.temp
+{
+    font-family: Gill Sans, Verdana;
+    font-size: 11px;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+.end {
+    font-family: "Lucida Grande", Tahoma;
+    font-size: 10px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    color: #666666;
+    margin-top: 10px;
+    text-align: center !important;
+    letter-spacing: 0.3em;
+}
+
+
+.weather.panel .panel-heading {
+    font-weight: lighter !important;
+    font-size: 1.2em;
+}
+
+.weather.panel .panel-footer {
+    font-weight: lighter !important;
+}
+
